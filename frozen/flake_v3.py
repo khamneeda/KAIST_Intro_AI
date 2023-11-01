@@ -84,37 +84,41 @@ class trainer():
     # def check(self, init_yaw, gyro, motor):
     #     if (init_yaw - gyro.yaw)
 
+    def hubo_run(self, motor):
+        motor.speed = 50,-44.5
+        time.sleep(2.47)
+        motor.speed = 0,0
+        time.sleep(0.1)
+        motor.speed = 25, 0
+        time.sleep(0.375)
+        motor.speed = 0,0
+        time.sleep(0.1)        
 
     def move(self, dir, prev, motor,gyro):
         change = prev - dir
         
-        #turn left : + +, 1115ms
+        #turn left
         if (change == 1 or change == -3):
             print("left")
             motor.speed = 50,50
             time.sleep(0.688)
-            
             motor.speed = 0,0
-            time.sleep(0.01)
-            motor.speed = 50,-47    
-            time.sleep(2.3)
+
+            self.hubo_run(motor)
         
-        #turn right : -40 -40, 1115ms
+        #turn right
         elif (change == -1 or change == 3):
             print("right")
             motor.speed = -50,-50
             time.sleep(0.688)
-            
             motor.speed = 0,0
-            time.sleep(0.01)
-            motor.speed = 50,-47    
-            time.sleep(2.3)
+            
+            self.hubo_run(motor)
         
-        #move forward : 69  -70, 1525
+        #move forward
         elif (change == 0):
             print("forward")
-            motor.speed = 50,-47
-            time.sleep(2.3)
+            self.hubo_run(motor)
 
         #turn back
         elif (change == 2 or change == -2):
