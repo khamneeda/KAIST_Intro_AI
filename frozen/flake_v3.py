@@ -81,23 +81,40 @@ class trainer():
             with open("FrozenLake" + self.map_name + "_" + str(self.epochs) + "iters.pkl", 'wb') as f:
                 pickle.dump(Q, f)
 
-    def move(self, dir, prev, network,motor,gyro):
+    # def check(self, init_yaw, gyro, motor):
+    #     if (init_yaw - gyro.yaw)
+
+
+    def move(self, dir, prev, motor,gyro):
         change = prev - dir
         
         #turn left : + +, 1115ms
         if (change == 1 or change == -3):
-            motor.speed = 40,40
-            time.sleep(1.115)
+            print("left")
+            motor.speed = 50,50
+            time.sleep(0.688)
+            
+            motor.speed = 0,0
+            time.sleep(0.01)
+            motor.speed = 50,-47    
+            time.sleep(2.3)
         
         #turn right : -40 -40, 1115ms
         elif (change == -1 or change == 3):
-            motor.speed = -40,-40
-            time.sleep(1.115)
+            print("right")
+            motor.speed = -50,-50
+            time.sleep(0.688)
+            
+            motor.speed = 0,0
+            time.sleep(0.01)
+            motor.speed = 50,-47    
+            time.sleep(2.3)
         
         #move forward : 69  -70, 1525
         elif (change == 0):
-            motor.speed = 69,-70
-            time.sleep(1.525)
+            print("forward")
+            motor.speed = 50,-47
+            time.sleep(2.3)
 
         #turn back
         elif (change == 2 or change == -2):
@@ -106,13 +123,15 @@ class trainer():
         else:
             print("Turn error occured")
             pass # move forward
-         
+        motor.speed = 0,0
+
 
     def car_run(self, path, network,motor,gyro):
         # path making
         pos = [0,0] # rows, column : m, n in matrix
         prev_int = 2 # left : 0, up: 1, right: 2, down: 3
         dir_int = 0
+        init_yaw = 0
         while (pos != [7,7]):
             direction = path[pos[0], pos[1]]
             match direction:
@@ -128,10 +147,11 @@ class trainer():
                     pos[1] += 1
                     dir_int = 2
             print("Direction", direction, "Pos:", pos, "Prev:", prev_int, "/ Dir:", dir_int)
-
-            self.move(dir_int, prev_int, network,motor,gyro)
+            
+            init_yaw = gyro.yaw
+            self.move(dir_int, prev_int, motor,gyro)
+            # check(init_yaw, gyro, motor)
             prev_int = dir_int
-        motor.speed = 0,0
         print("Arrived")
                     
                     
