@@ -1,0 +1,8 @@
+[['down' 'down' 'down' 'down' 'down' 'down' 'down' 'down']
+ ['down' 'down' 'down' 'right' 'down' 'down' 'down' 'down']
+ ['down' 'down' 'down' 'left' 'down' 'right' 'down' 'down']
+ ['right' 'right' 'right' 'right' 'down' 'left' 'down' 'down']
+ ['right' 'right' 'up' 'left' 'right' 'right' 'right' 'down']
+ ['up' 'left' 'left' 'right' 'right' 'up' 'left' 'down']
+ ['up' 'left' 'down' 'up' 'left' 'up' 'left' 'down']
+ ['up' 'left' 'left' 'left' 'right' 'right' 'right' 'left']]
