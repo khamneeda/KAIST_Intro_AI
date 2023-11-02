@@ -55,8 +55,16 @@ class trainer():
 
         print("TRAINING DONE.")
         res_path = np.argmax(Q, axis = 1)
-        res_wpath = np.array([l_idx[x] for x in res_path]).reshape(-size, size)
-        
+        #res_wpath = np.array([l_idx[x] for x in res_path]).reshape(-size, size)
+        res_wpath = np.array([['down', 'left', 'left', 'down', 'down', 'right', 'down', 'down'],
+        ['down', 'left', 'down', 'down', 'down', 'left', 'down', 'down'],
+        ['right', 'down', 'down', 'down', 'down', 'right', 'down', 'down'],
+        ['left', 'right', 'right', 'right', 'down', 'left', 'down', 'down'],
+        ['down', 'right', 'up', 'left', 'down', 'down', 'right', 'down'],
+        ['down', 'left', 'left', 'down', 'down', 'down', 'left', 'down'],
+        ['down', 'left', 'right', 'right', 'down', 'down', 'left', 'down'],
+        ['right', 'right', 'up', 'left', 'right', 'right', 'right', 'left']])
+
         print("Q-tables: ")
         print(Q)
         # Our code
@@ -85,14 +93,16 @@ class trainer():
     #     if (init_yaw - gyro.yaw)
 
     def hubo_run(self, motor):
-        motor.speed = 50,-44.5
-        time.sleep(2.47)
+        motor.speed = 50,-43
+        time.sleep(2.36)
+        motor.speed = 0,0
+        time.sleep(0.59)
         motor.speed = 0,0
         time.sleep(0.1)
         motor.speed = 25, 0
-        time.sleep(0.375)
+        time.sleep(0.42)
         motor.speed = 0,0
-        time.sleep(0.1)        
+        time.sleep(0.1)         
 
     def move(self, dir, prev, motor,gyro):
         change = prev - dir
@@ -101,8 +111,9 @@ class trainer():
         if (change == 1 or change == -3):
             print("left")
             motor.speed = 50,50
-            time.sleep(0.688)
+            time.sleep(0.65)
             motor.speed = 0,0
+            time.sleep(1)
 
             self.hubo_run(motor)
         
@@ -110,7 +121,7 @@ class trainer():
         elif (change == -1 or change == 3):
             print("right")
             motor.speed = -50,-50
-            time.sleep(0.688)
+            time.sleep(0.62)
             motor.speed = 0,0
             
             self.hubo_run(motor)
@@ -128,12 +139,13 @@ class trainer():
             print("Turn error occured")
             pass # move forward
         motor.speed = 0,0
+        time.sleep(0.5)
 
 
     def car_run(self, path, network,motor,gyro):
         # path making
         pos = [0,0] # rows, column : m, n in matrix
-        prev_int = 2 # left : 0, up: 1, right: 2, down: 3
+        prev_int = 3 # left : 0, up: 1, right: 2, down: 3
         dir_int = 0
         init_yaw = 0
         while (pos != [7,7]):
