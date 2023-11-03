@@ -94,15 +94,12 @@ class trainer():
 
     def hubo_run(self, motor):
         motor.speed = 50,-43
-        time.sleep(2.36)
+        time.sleep(2.5)
         motor.speed = 0,0
-        time.sleep(0.59)
-        motor.speed = 0,0
-        time.sleep(0.1)
+        time.sleep(0.5)
         motor.speed = 25, 0
-        time.sleep(0.42)
-        motor.speed = 0,0
-        time.sleep(0.1)         
+        time.sleep(0.2)
+
 
     def move(self, dir, prev, motor,gyro):
         change = prev - dir
@@ -113,7 +110,7 @@ class trainer():
             motor.speed = 50,50
             time.sleep(0.65)
             motor.speed = 0,0
-            time.sleep(1)
+            time.sleep(0.5)
 
             self.hubo_run(motor)
         
@@ -121,9 +118,11 @@ class trainer():
         elif (change == -1 or change == 3):
             print("right")
             motor.speed = -50,-50
-            time.sleep(0.62)
+            time.sleep(0.65)
             motor.speed = 0,0
-            
+            time.sleep(0.5)
+
+
             self.hubo_run(motor)
         
         #move forward

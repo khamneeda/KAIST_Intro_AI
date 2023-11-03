@@ -17,40 +17,40 @@ gyro = bundle.gyros[0]
 # time.sleep(1.32)
 
     # turn right
+
+def move(motor):
+    motor.speed = 50,-43
+    time.sleep(2.5)
+    motor.speed = 0,0
+    time.sleep(0.5)
+    motor.speed = 25, 0
+    time.sleep(0.2)
+    motor.speed = 0,0
+    time.sleep(0.1)
+
+def left(motor):
+    motor.speed = 50,50
+    time.sleep(0.65)
+    motor.speed = 0,0
+    time.sleep(1)
+
+def right(motor):
+    motor.speed = -50,-50
+    time.sleep(0.65)
+    motor.speed = 0,0
+    time.sleep(0.5)
+
+
+
 # Good
-motor.speed = -50,-50
-time.sleep(0.67)
-motor.speed = 0,0
-time.sleep(0.5)
-
-motor.speed = 50,-43
-time.sleep(2.36)
-motor.speed = 0,0
-time.sleep(0.5)
-motor.speed = 25, 0
-time.sleep(0.3)
-motor.speed = 0,0
-time.sleep(0.1)  
-
-print("left")
-motor.speed = 50,50
-time.sleep(0.65)
-motor.speed = 0,0
-time.sleep(1)
-
-
-motor.speed = 50,-43
-time.sleep(2.33)
-motor.speed = 0,0
-time.sleep(0.59)
-motor.speed = 0,0
-time.sleep(0.1)
-motor.speed = 25, 0
-time.sleep(0.42)
-motor.speed = 0,0
-time.sleep(0.1)  
-
-
+move(motor)
+right(motor)
+move(motor)
+left(motor)
+right(motor)
+move(motor)
+right(motor)
+move(motor)
 
 
 
