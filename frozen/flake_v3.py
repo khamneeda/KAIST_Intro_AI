@@ -55,15 +55,7 @@ class trainer():
 
         print("TRAINING DONE.")
         res_path = np.argmax(Q, axis = 1)
-        #res_wpath = np.array([l_idx[x] for x in res_path]).reshape(-size, size)
-        res_wpath = np.array([['down', 'left', 'left', 'down', 'down', 'right', 'down', 'down'],
-        ['down', 'left', 'down', 'down', 'down', 'left', 'down', 'down'],
-        ['right', 'down', 'down', 'down', 'down', 'right', 'down', 'down'],
-        ['left', 'right', 'right', 'right', 'down', 'left', 'down', 'down'],
-        ['down', 'right', 'up', 'left', 'down', 'down', 'right', 'down'],
-        ['down', 'left', 'left', 'down', 'down', 'down', 'left', 'down'],
-        ['down', 'left', 'right', 'right', 'down', 'down', 'left', 'down'],
-        ['right', 'right', 'up', 'left', 'right', 'right', 'right', 'left']])
+        res_wpath = np.array([l_idx[x] for x in res_path]).reshape(-size, size)
 
         print("Q-tables: ")
         print(Q)

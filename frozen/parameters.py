@@ -8,7 +8,7 @@ PARAMS = \
 	},
 	"map_name": "8x8",
 	"epsilon": 0.9,
-	"epochs": 300,
+	"epochs": 1000000,
 	"max_steps": 100,
 	"lr": .81,
 	"gamma": .96,
