@@ -1,18 +1,4 @@
-﻿/*
-Created by Youssef Elashry to allow two-way communication between Python3 and Unity to send and receive strings
-
-Feel free to use this in your individual or commercial projects BUT make sure to reference me as: Two-way communication between Python 3 and Unity (C#) - Y. T. Elashry
-It would be appreciated if you send me how you have used this in your projects (e.g. Machine Learning) at youssef.elashry@gmail.com
-
-Use at your own risk
-Use under the Apache License 2.0
-
-Modified by: 
-Youssef Elashry 12/2020 (replaced obsolete functions and improved further - works with Python as well)
-Based on older work by Sandra Fang 2016 - Unity3D to MATLAB UDP communication - [url]http://msdn.microsoft.com/de-de/library/bb979228.aspx#ID0E3BAC[/url]
-*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using System.Text;
