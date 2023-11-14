@@ -1,0 +1,10 @@
+[AudioInfo]
+Artist=
+Title=
+AudioPreviewTime=
+Offset=
+Difficulty=
+
+[TimingPoints]
+
+[HitObjects]
