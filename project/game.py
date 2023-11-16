@@ -1,7 +1,8 @@
 import modi
 import time
 
-# define range constant
+# define range constant 
+# If value differ between sensors, use list
 cls = 40
 mid = 80
 far = 120
