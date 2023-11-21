@@ -42,3 +42,10 @@ while True:
                 if col[j] == i+1:
                     if (3*i+j) %2 == 0: 
                         step[3*i+j] = 1
+    
+    txt = ""
+    for i in range(5):
+        txt = txt + str(step[2*i])
+
+    print("Current step info:",txt)
+    
