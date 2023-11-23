@@ -11,11 +11,8 @@ far = 120
 bundle = modi.MODI()
 network = bundle.networks[0]
 ul0 = bundle.ultrasonics[0]
-ul1 = bundle.ultrasonics[1]
 ul2 = bundle.ultrasonics[2]
-ul3 = bundle.ultrasonics[3]
 ul4 = bundle.ultrasonics[4]
-ul5 = bundle.ultrasonics[5]
 ul6 = bundle.ultrasonics[6]
 ul7 = bundle.ultrasonics[7]
 ul8 = bundle.ultrasonics[8]
@@ -25,7 +22,7 @@ while True:
 
     # get sensor value
     row = [ul6, ul7, ul8]
-    col = [ul0 if ul0<ul1 else ul1, ul2 if ul2<ul3 else ul3, ul4 if ul4<ul5 else ul5]
+    col = [ul0, ul2, ul4]
 
     # set 1 / 2 / 3 if stepped for each row and column
     for i in range(3):
@@ -43,9 +40,19 @@ while True:
                     if (3*i+j) %2 == 0: 
                         step[3*i+j] = 1
     
-    txt = ""
-    for i in range(5):
-        txt = txt + str(step[2*i])
+    print("#######")
+    print("#%d###%d#",step[0], step[2])
+    print("#######")
+    print("###%d###",step[4])
+    print("#######")
+    print("#%d###%d#",step[6], step[8])
+    print("#######")
+    
 
-    print("Current step info:",txt)
+
+    # txt = ""
+    # for i in range(5):
+    #     txt = txt + str(step[2*i])
+
+    # print("Current step info:",txt)
     
