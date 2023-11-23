@@ -21,8 +21,8 @@ while True:
     time.sleep(0.01) # minimum detection time
 
     # get sensor value
-    row = [ul6, ul7, ul8]
-    col = [ul0, ul2, ul4]
+    row = [ul6.distance, ul7.distance, ul8.distance]
+    col = [ul0.distance, ul2.distance, ul4.distance]
 
     # set 1 / 2 / 3 if stepped for each row and column
     for i in range(3):

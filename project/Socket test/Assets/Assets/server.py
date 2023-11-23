@@ -1,3 +1,5 @@
+# Example of a Python UDP server
+
 import UdpComms as U
 import time
 import modi
@@ -80,7 +82,7 @@ while True:
     
     sock.SendData(txt) # Send this string to other application
 
-    # data = sock.ReadReceivedData() # read data
+    data = sock.ReadReceivedData() # read data
 
-    # if data != None: # if NEW data has been received since last ReadReceivedData function call
-    #     print(data) # print new received data
+    if data != None: # if NEW data has been received since last ReadReceivedData function call
+        print(data) # print new received data
