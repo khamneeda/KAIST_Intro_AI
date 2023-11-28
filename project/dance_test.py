@@ -21,6 +21,18 @@ ul6 = bundle.ultrasonics[6]
 ul7 = bundle.ultrasonics[7]
 ul8 = bundle.ultrasonics[8]
 
+for i in range(10):
+    print("Sensor connection test %d/10", i)
+    print("r3 sensor: %d", ul8.distance)
+    print("r2 sensor: %d", ul7.distance)
+    print("r1 sensor: %d", ul6.distance)
+    print("c1 sensor: %d", ul0.distance)
+    print("c3 sensor: %d", ul4.distance)
+
+    input("Enter any key to continue:")  
+
+
+
 while True:
     time.sleep(0.01) # minimum detection time
 
