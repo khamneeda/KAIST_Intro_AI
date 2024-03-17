@@ -5,4 +5,5 @@ Frozen
 Project
 DDR(Dance Dance Revolution) game construction
 1. Socket programming between python backend and c client
-2. Unity game UI
+2. Sensor detection and situation awareness algorithm in python
+3. Unity game UI
